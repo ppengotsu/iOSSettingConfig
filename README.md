@@ -1,4 +1,14 @@
 iOSSettingConfig
 ================
 
-iOSの設定アプリ用の設定例
+iOSの設定アプリの設定表示用です。
+
+コンパイルのモード(ReleaseかDebug)で、出力するファイルを分けています。
+
+
+
+License
+-----------------
+
+MIT　License
+
