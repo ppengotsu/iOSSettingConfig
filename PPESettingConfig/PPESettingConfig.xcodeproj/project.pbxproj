@@ -15,6 +15,8 @@
 		4460F01319E92A3400857098 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4460F01119E92A3400857098 /* LaunchScreen.xib */; };
 		4460F01F19E92A3400857098 /* PPESettingConfigTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4460F01E19E92A3400857098 /* PPESettingConfigTests.m */; };
 		4460F02F19E9319400857098 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4460F02E19E9319400857098 /* Settings.bundle */; };
+		4460F03319E9461000857098 /* SettingsDebug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4460F03219E9461000857098 /* SettingsDebug.bundle */; };
+		4460F03519E9465F00857098 /* SettingsRelease.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4460F03419E9465F00857098 /* SettingsRelease.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +43,10 @@
 		4460F01819E92A3400857098 /* PPESettingConfigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PPESettingConfigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4460F01D19E92A3400857098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4460F01E19E92A3400857098 /* PPESettingConfigTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPESettingConfigTests.m; sourceTree = "<group>"; };
-		4460F02919E92B8200857098 /* PPEBuildConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPEBuildConfig.h; sourceTree = "<group>"; };
-		4460F02A19E92C4C00857098 /* AppCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppCommonConfig.h; path = config/AppCommonConfig.h; sourceTree = "<group>"; };
 		4460F02E19E9319400857098 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Setting/Settings.bundle; sourceTree = "<group>"; };
+		4460F03219E9461000857098 /* SettingsDebug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SettingsDebug.bundle; path = Setting/Debug/SettingsDebug.bundle; sourceTree = "<group>"; };
+		4460F03419E9465F00857098 /* SettingsRelease.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SettingsRelease.bundle; path = Setting/Release/SettingsRelease.bundle; sourceTree = "<group>"; };
+		4460F03619E96ABB00857098 /* run_settingsconfig.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = run_settingsconfig.sh; path = Setting/run_settingsconfig.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +131,6 @@
 		4460F02819E92A9D00857098 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				4460F02919E92B8200857098 /* PPEBuildConfig.h */,
-				4460F02A19E92C4C00857098 /* AppCommonConfig.h */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -140,6 +141,7 @@
 				4460F03119E931D000857098 /* Debug */,
 				4460F03019E931A700857098 /* Release */,
 				4460F02E19E9319400857098 /* Settings.bundle */,
+				4460F03619E96ABB00857098 /* run_settingsconfig.sh */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -147,6 +149,7 @@
 		4460F03019E931A700857098 /* Release */ = {
 			isa = PBXGroup;
 			children = (
+				4460F03419E9465F00857098 /* SettingsRelease.bundle */,
 			);
 			name = Release;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 		4460F03119E931D000857098 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				4460F03219E9461000857098 /* SettingsDebug.bundle */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -241,8 +245,10 @@
 			files = (
 				4460F02F19E9319400857098 /* Settings.bundle in Resources */,
 				4460F00E19E92A3400857098 /* Main.storyboard in Resources */,
+				4460F03519E9465F00857098 /* SettingsRelease.bundle in Resources */,
 				4460F01319E92A3400857098 /* LaunchScreen.xib in Resources */,
 				4460F01019E92A3400857098 /* Images.xcassets in Resources */,
+				4460F03319E9461000857098 /* SettingsDebug.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +274,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#設定アプリに出てくる項目を分けている\nif [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n#デバッグ時\nrm -r \"${SRCROOT}/${PRODUCT_NAME}/mysource/config/Settings.bundle\"\ncp -r \"${SRCROOT}/${PRODUCT_NAME}/mysource/config/Debug/SettingsDebug.bundle\" \"${SRCROOT}/${PRODUCT_NAME}/mysource/config/Settings.bundle\"\nfi\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n#リリース時\nrm -r \"${SRCROOT}/${PRODUCT_NAME}/mysource/config/Settings.bundle\"\ncp -r \"${SRCROOT}/${PRODUCT_NAME}/mysource/config/Release/SettingsRelease.bundle\" \"${SRCROOT}/${PRODUCT_NAME}/mysource/config/Settings.bundle\"\nfi\n";
+			shellScript = "#設定アプリ用スクリプト\nsh \"${SRCROOT}/${PRODUCT_NAME}/Setting/run_settingsconfig.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -401,7 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "${SRCROOT}/${PRODUCT_NAME}/Config/AppCommonConfig.h";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = PPESettingConfig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,7 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "${SRCROOT}/${PRODUCT_NAME}/Config/AppCommonConfig.h";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = PPESettingConfig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -472,6 +478,7 @@
 				4460F02419E92A3400857098 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4460F02519E92A3400857098 /* Build configuration list for PBXNativeTarget "PPESettingConfigTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +487,7 @@
 				4460F02719E92A3400857098 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
