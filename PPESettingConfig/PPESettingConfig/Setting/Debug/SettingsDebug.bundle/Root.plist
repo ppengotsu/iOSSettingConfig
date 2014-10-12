@@ -78,7 +78,7 @@
 			<key>Key</key>
 			<string>settingsconfig_debug_selectconnect</string>
 			<key>DefaultValue</key>
-			<string>4</string>
+			<string>stagingaddress</string>
 			<key>Titles</key>
 			<array>
 				<string>develop1</string>
@@ -91,13 +91,13 @@
 			</array>
 			<key>Values</key>
 			<array>
-				<string>0</string>
-				<string>1</string>
-				<string>2</string>
-				<string>3</string>
-				<string>4</string>
-				<string>5</string>
-				<string>6</string>
+				<string>dev1address</string>
+				<string>dev2address</string>
+				<string>dev3address</string>
+				<string>dev4address</string>
+				<string>stagingaddress</string>
+				<string>productaddress</string>
+				<string>edit</string>
 			</array>
 		</dict>
 		<dict>
@@ -108,7 +108,7 @@
 			<key>Key</key>
 			<string>settingsconfig_debug_selectprotocol</string>
 			<key>DefaultValue</key>
-			<string>0</string>
+			<string>https</string>
 			<key>Titles</key>
 			<array>
 				<string>http</string>
@@ -117,9 +117,9 @@
 			</array>
 			<key>Values</key>
 			<array>
-				<string>0</string>
-				<string>1</string>
-				<string>2</string>
+				<string>http</string>
+				<string>https</string>
+				<string>ftp</string>
 			</array>
 		</dict>
 		<dict>
